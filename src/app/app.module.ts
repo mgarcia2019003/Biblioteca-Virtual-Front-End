@@ -41,7 +41,6 @@ import { ProfileUserSelectComponent } from './components/profile-user-select/pro
   ],
   providers: [
     RestUserService,
-    LoginGuardGuard
   ],
   bootstrap: [AppComponent]
 })

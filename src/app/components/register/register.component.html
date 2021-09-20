@@ -12,7 +12,7 @@
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-6"></div>
+            <div class="form-group col-md-6">
                 <label for="inputName">Name</label>
                 <input [(ngModel)]="user.name" name='name' #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required>
                 <span *ngIf="!name.valid && name.touched">
@@ -20,7 +20,7 @@
                 </span>
             </div>
 
-            <div class="form-group col-md-6"></div>
+            <div class="form-group col-md-6">
                 <label for="inputLastname">Lastname</label>
                 <input [(ngModel)]="user.lastname" name='lastname' #lastname="ngModel" class="form-control" id="inputLastname" type="text" placeholder="lastname" required>
                 <span *ngIf="!lastname.valid && lastname.touched">
