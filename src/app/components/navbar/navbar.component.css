@@ -1,15 +1,15 @@
 .navbar{
-    background-color: #ffffff;
+    background-color: #2143b3;
     border-collapse: collapse;    
-    border-bottom: rgb(228, 82, 82) solid;
+    border-bottom: rgb(12, 15, 146) solid;
     margin-left: 2rem;
     margin-right: 2rem;
-    color: black;
+    color: rgb(255, 255, 255);
     text-align: end;
 }
 
 .navbar-brand{
-    color: black
+    color: rgb(30, 17, 88)
 }
 
 .imgUser{
@@ -28,7 +28,7 @@ a {
 
 #navbarDropdown{
     text-decoration: none;
-    color:#FF9100;
+    color:#ffffff;
     outline: none; 
     text-align: end;   
 }
@@ -48,7 +48,7 @@ a {
 
 #biblioname, #biblioname:hover{
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
     text-align: center;
     line-height: 0.9em;
 }
