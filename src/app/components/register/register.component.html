@@ -1,0 +1,83 @@
+<body class="text-center">
+    <form class="form-signin" #register="ngForm" (ngSubmit)="onSubmit(register)">
+        <img class ="mb-4" width="72" height="72" src="../../../assets/img/signIn.png" alt="imagen de una agenda">
+        <h1 class="h3 mb-3 font-weight-normal">Create your account</h1>
+        
+        <div class="form-group">
+            <label for="inputIdentificador">CUI</label>
+            <input [(ngModel)]="user.identificador" name='identificador' #identificador="ngModel" class="form-control" id="inputIdentificador" type="text" placeholder="identificador" required>
+            <span *ngIf="!identificador.valid && identificador.touched">
+                Campo obligatorio
+            </span>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6"></div>
+                <label for="inputName">Name</label>
+                <input [(ngModel)]="user.name" name='name' #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required>
+                <span *ngIf="!name.valid && name.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+
+            <div class="form-group col-md-6"></div>
+                <label for="inputLastname">Lastname</label>
+                <input [(ngModel)]="user.lastname" name='lastname' #lastname="ngModel" class="form-control" id="inputLastname" type="text" placeholder="lastname" required>
+                <span *ngIf="!lastname.valid && lastname.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputUsername">Username</label>
+                <input [(ngModel)]="user.username" #username="ngModel" name='username' class="form-control" placeholder="username" type="text" id="inputUsername" required>
+                <span *ngIf="!username.valid && username.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword">Password</label>
+                <input [(ngModel)]="user.password" #password="ngModel" name='password' class="form-control" type="password" id="inputPassword" placeholder="password" required>
+                <span *ngIf="!password.valid && password.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail">Email</label>
+            <input [(ngModel)]="user.email" #email="ngModel" name='email' class="form-control" type="email" id="inputEmail" placeholder="email" required>
+            <span *ngIf="!email.valid && email.touched">
+                Campo obligatorio
+            </span>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="selectRol">Select Rol:</label>
+            <select [(ngModel)]="user.rol" #rol="ngModel" name="rol" id="selectRol" class="form-control" required>
+                <option *ngFor="let option of optionsRol" [value]="option">{{option}}</option>
+            </select>
+            <span></span>
+        </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="check">
+                <label class="form-check-label" for="check">I aggree the terms and conditions</label>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-12"><button id="buttonLogIn" class="btn col-5" type="submit" [disabled]='!register.form.valid'>Sign Up</button></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12"><button id="buttonSignUp" class="btn col-5" type="button" routerLink="/login">Log In</button></div>
+            </div>
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; Sport Referee 2021</p>
+    </form>
+</body>

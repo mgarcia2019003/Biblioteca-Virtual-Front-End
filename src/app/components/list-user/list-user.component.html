@@ -1,0 +1,29 @@
+<h1>Users with rol "User"</h1>
+<div style="overflow-x:auto; margin-bottom: 2em;">
+    <br>
+    <table>
+        <thead>            
+            <tr>
+                <th>No.</th>
+                <th>CUI</th> 
+                <th>Name</th>            
+                <th>LastName</th>
+                <th>Username</th>
+                <th>Rol</th>
+                <th>Email</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let user of users let i = index">
+            <td>{{i+1}}</td>
+            <td>{{user.identificador}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.rol}}</td>
+            <td>{{user.email}}</td>
+            
+            <td><button id="buttonEdit" type="button" (click)="obtenerData(user)">Edit/Remove</button></td>
+        </tr>            
+    </table>
+  </div>

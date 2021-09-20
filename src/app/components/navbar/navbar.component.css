@@ -1,0 +1,62 @@
+.navbar{
+    background-color: #ffffff;
+    border-collapse: collapse;    
+    border-bottom: rgb(228, 82, 82) solid;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color: black;
+    text-align: end;
+}
+
+.navbar-brand{
+    color: black
+}
+
+.imgUser{
+    width: 115;
+    height: 80px;
+}
+
+a {
+    text-decoration: none;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 24px;
+    padding-left: 1.2rem;
+    padding-top: auto;
+}
+
+#navbarDropdown{
+    text-decoration: none;
+    color:#FF9100;
+    outline: none; 
+    text-align: end;   
+}
+
+#navbarDropdown .dropdown-item{
+    margin: 0.5rem 2rem; 
+    text-align: end;   
+}
+
+.dropdown-item{
+    padding: 0.2rem 0.8rem;
+}
+
+.dropdown-menu{
+    right: 0;
+}
+
+#biblioname, #biblioname:hover{
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    line-height: 0.9em;
+}
+
+@media (max-width: 1000px) {
+    .dropdown-menu{
+        right: 0;
+        text-align: end;
+        padding: 0;
+    }
+}

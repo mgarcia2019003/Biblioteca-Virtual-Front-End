@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+
+    <div class="container-fluid">
+      <a routerLink="/home">
+        <img class="imgUser" src="../../../assets/img/Biblioteca.png" alt="Biblioteca Vitual">
+      </a>
+      <a routerLink="/home" id=biblioname>
+        Biblioteca<br>Virtual
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">      
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0" id="lista">
+        <li class="nav-item">
+            <a class="text-dark" routerLink="/leagues" routerLinkActivate="active">
+                Leagues
+            </a>
+          </li>
+        <li class="nav-item">
+            <!--*ngIf='token == null' --> 
+          <a class="text-dark" *ngIf='token == null' routerLink="/login" routerLinkActivate="active">
+              Log in
+          </a>            
+          <!--<a class="nav-link" href="#">Perfil</a>-->            
+        </li>
+      <!--*ngIf="token != null || token != undefined"-->
+      <li class="nav-item dropdown" *ngIf="token != null || token != undefined">
+          <a class="text-dark dropdown-toggle" *ngIf="token != null || token != undefined" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false"> 
+            {{user.username}}
+          </a>
+          <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false">
+            <li><a class="dropdown-item" routerLink="/profile">Perfil</a></li>
+            <!--<li><a class="dropdown-item" routerLink="/leagues">My Leagues</a></li>-->
+            <li><a class="dropdown-item" *ngIf="user.rol == 'ADMIN'" routerLink="/createUser">Create User</a></li>
+            <li><a class="dropdown-item" *ngIf="user.rol == 'ADMIN'" routerLink="/listUsers">List users</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="logOut()">LogOut</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    </div>    
+  </nav>
