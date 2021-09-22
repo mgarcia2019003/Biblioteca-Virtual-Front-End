@@ -5,22 +5,32 @@
         <img data-toggle="modal" data-target="#imageModal" *ngIf="user.image" id="imagePerfil" class ="mb-4" width="72" height="72" src="{{uri+'getImage/'+user.image}}" alt="Profile Picture">
         <img data-toggle="modal" data-target="#imageModal" *ngIf="user.image == '' || user.image == undefined" id="imagePerfil" class ="mb-4" width="72" height="72" src="../../../assets/img/userenNavbar.png" alt="imagen de una agenda">        
         <hr>        
+        <div class="form-group">
+            <label for="inputIdentificador">CUI</label>
+            <input [(ngModel)]="user.identificador" name='identificador' #identificador="ngModel" class="form-control" id="inputIdentificador" type="text" placeholder="identificador" required>
+            <span *ngIf="!identificador.valid && identificador.touched">
+                Campo obligatorio
+            </span>
+        </div>
+
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputName">Name</label>
-                <input [(ngModel)]="user.name" name='name' #name="ngModel" class="form-control" id="inputName" type="text" placeholder="your name" required>
+                <input [(ngModel)]="user.name" name='name' #name="ngModel" class="form-control" id="inputName" type="text" placeholder="name" required>
                 <span *ngIf="!name.valid && name.touched">
                     Campo obligatorio
                 </span>
             </div>
+
             <div class="form-group col-md-6">
-                <label for="inputLastname">Last Name</label>
-                <input [(ngModel)]="user.lastname" type="text" #lastname="ngModel" name="lastname" class="form-control" id="inputLastname" placeholder="your lastname" required>
+                <label for="inputLastname">Lastname</label>
+                <input [(ngModel)]="user.lastname" name='lastname' #lastname="ngModel" class="form-control" id="inputLastname" type="text" placeholder="lastname" required>
                 <span *ngIf="!lastname.valid && lastname.touched">
                     Campo obligatorio
                 </span>
             </div>
         </div>
+
 
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -30,11 +40,10 @@
                     Campo obligatorio
                 </span>
             </div>
-            
             <div class="form-group col-md-6">
-                <label for="inputEmail">Email</label>
-                <input [(ngModel)]="user.email" #email="ngModel" name='email' class="form-control" type="email" id="inputEmail" placeholder="email" required>
-            </div>
+                    <label for="inputEmail">Email</label>
+                    <input [(ngModel)]="user.email" #email="ngModel" name='email' class="form-control" type="email" id="inputEmail" placeholder="email" required>
+                </div>
         </div>
 
         <div class="form-group">
