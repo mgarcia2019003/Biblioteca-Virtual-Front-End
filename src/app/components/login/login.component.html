@@ -1,13 +1,13 @@
 <body class="text-center">
     <form class="form-signin" (ngSubmit)='onSubmit()' #login='ngForm'>
         <img class="mb-4" width="72" height="72" src="../../../assets/img/logueo.png" alt="logo">
-        <h1 class="h3 mb-3 font-weight-normal">Please Log In</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Por favor, ingresa</h1>
         
-        <label for="inputUsername">username</label>
-        <input [(ngModel)]='user.username' class="form-control" name="username" class="form-control" type="text" id="inputUsername" placeholder="Enter username" required>
+        <label for="inputUsername">Username</label>
+        <input [(ngModel)]='user.username' class="form-control" name="username" class="form-control" type="text" id="inputUsername" placeholder="Usuario" required>
 
         <label for="inputPassword">Password</label>
-        <input [(ngModel)]='user.password' class="form-control" name="password" class="form-control" type="password" id="inputPassword" placeholder="Enter password" required>
+        <input [(ngModel)]='user.password' class="form-control" name="password" class="form-control" type="password" id="inputPassword" placeholder="Contraseña" required>
 
         <div class="checkbox mb-3">
             <label>
@@ -16,12 +16,11 @@
         </div>
         <div class="container">
             <div class="row mb-3">
-                <div class="col-12"><button id="buttonLogIn" class="btn col-9" type="submit" [disabled]='!login.form.valid'>Log In</button></div>
+                <div class="col-12"><button id="buttonLogIn" class="btn col-9" type="submit" [disabled]='!login.form.valid'>Iniciar sesión</button></div>
             </div>
             <div class="row mb-3">
-              <div class="col-12"><button id="buttonSignUp" class="btn col-9" type="button" routerLink="/register">Sign Up</button></div>
+              <div class="col-12"><button id="buttonSignUp" class="btn col-9" type="button" routerLink="/register">Registrarse</button></div>
             </div>
         </div>
-        <p class="mt-5 mb-3 text-muted">&copy; Sport Referee 2021</p>
     </form>
 </body>

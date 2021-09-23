@@ -1,0 +1,63 @@
+<body class="text-center">
+    <form class="form-signin" #createBook="ngForm" (ngSubmit)="onSubmit(createBook)">
+        <h1 class="h3 mb-3 font-weight-normal">Libro nuevo</h1>
+
+        <br>
+        <img data-toggle="modal" data-target="#imageModal" *ngIf="book.cover" id="cover" class ="mb-4" width="250" height="250" src="{{uri+'getImage/'+book.cover}}" alt="Imagen del libro">
+        <img data-toggle="modal" data-target="#imageModal" *ngIf="book.cover == '' || book.cover == undefined" id="cover" class ="mb-4" width="250" height="250" src="../../../assets/img/2.png" alt="imagen de una agenda">     
+
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="inputTitle">Titulo</label>
+                <input [(ngModel)]="book.titleBook" name='titleBook' #titleBook="ngModel" class="form-control" id="inputTitle" type="text" placeholder="Título del libro" required>
+                <span *ngIf="!titleBook.valid && titleBook.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label for="inputAuthor">Autor</label>
+                <input [(ngModel)]="book.authorBook" name='authorBook' #authorBook="ngModel" class="form-control" id="inputAuthor" type="text" placeholder="Autor del libro" required>
+                <span *ngIf="!authorBook.valid && authorBook.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="inputDescription">Descripción libro</label>
+            <input [(ngModel)]="book.descriptionBook" name='descriptionBook' #descriptionBook="ngModel" class="form-control" id="inputDescription" type="text" placeholder="Descripción">
+        </div>
+
+        <div class="form-group">
+            <label for="inputTheme">Tema del libro</label>
+            <input [(ngModel)]="book.themesBook" name='themesBook' #descriptionBook="ngModel" class="form-control" id="inputTheme" type="text" placeholder="Horror, ciencia ficción, aventura...">
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCopies">Copias</label>
+                <input [(ngModel)]="book.copiesBooks" name='copiesBooks' #copiesBooks="ngModel" class="form-control" id="inputCopies" type="number" placeholder="Copias en el sistema" required>
+                <span *ngIf="!copiesBooks.valid && copiesBooks.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputAvalibles">Disponibles</label>
+                <input [(ngModel)]="book.avaliblesBooks" name='avaliblesBooks' #avaliblesBooks="ngModel" class="form-control" id="inputAvalibles" type="number" placeholder="Disponibles" required>
+                <span *ngIf="!avaliblesBooks.valid && avaliblesBooks.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn col-lg-3 mx-2" id="buttonCreate" [disabled]="!createBook.form.valid">Crear libro</button>
+    </form>
