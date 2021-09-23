@@ -5,28 +5,27 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(books: any, search: any): any {
+  transform(books: any, magazines: any, search: any): any {
     if(search == undefined || search == ''){
       return books;
-    }else{
+      return magazines;
+    }else if(books == ''){
       return books.filter(book =>{
         if(book.titleBook.toLowerCase().includes(search.toLowerCase())){
-          return book
+          return book;
         }
-      })
+      }) 
+      
+    }else if(magazines == ''){
+      return magazines.filter(magazine =>{
+        if(magazine.titleMagazines.toLowerCase().includes(search.toLowerCase())){
+          return magazine;
+        }
+      }) 
     }
+    
   }
 
-  transform(magazines: any, search: any): any {
-    if(search == undefined || search == ''){
-      return magazines;
-    }else{
-      return magazines.filter(book =>{
-        if(magazine.titleMagazine.toLowerCase().includes(search.toLowerCase())){
-          return magazine
-        }
-      })
-    }
-  }
+    
 
 }

@@ -19,6 +19,12 @@ import { CreateUserByAdminComponent } from './components/create-user-by-admin/cr
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { ProfileUserSelectComponent } from './components/profile-user-select/profile-user-select.component';
 
+import { RestBookService } from './services/restBook/rest-book.service';
+import { CreateBookComponent } from './components/create-book/create-book.component';
+import { ListBookComponent } from './components/list-book/list-book.component';
+import { ProfileBookComponent } from './components/profile-book/profile-book.component';
+
+
 
 @NgModule({
   declarations: [
@@ -31,6 +37,9 @@ import { ProfileUserSelectComponent } from './components/profile-user-select/pro
     CreateUserByAdminComponent,
     ListUserComponent,
     ProfileUserSelectComponent,
+    CreateBookComponent,
+    ListBookComponent,
+    ProfileBookComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +50,7 @@ import { ProfileUserSelectComponent } from './components/profile-user-select/pro
   ],
   providers: [
     RestUserService,
+    RestBookService
   ],
   bootstrap: [AppComponent]
 })
