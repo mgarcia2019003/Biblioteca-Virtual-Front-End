@@ -9,6 +9,7 @@ export class User{
         public rol: String,
         public email: String,
         public password: String,
-        public image: String
+        public image: String,
+        public loans: Number
     ){}  
 }

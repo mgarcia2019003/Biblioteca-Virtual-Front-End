@@ -10,6 +10,7 @@ export class Book{
         public themesBook: String,
         public copiesBooks: Number,
         public avaliblesBooks: Number,
-        public cover: String
+        public cover: String,
+        public loanBooks: Number
     ){}  
 }

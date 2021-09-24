@@ -11,6 +11,7 @@ export class Magazine{
         public themesMagazine: String,
         public wordsMagazine: String,
         public copiesMagazines: Number,
-        public avaliblesMagazines: Number
+        public avaliblesMagazines: Number,
+        public loanMagazines: Number
     ){}  
 }
