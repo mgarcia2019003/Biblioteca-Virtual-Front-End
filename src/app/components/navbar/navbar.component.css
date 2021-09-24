@@ -48,7 +48,7 @@ a {
 
 #biblioname, #biblioname:hover{
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     text-align: center;
     line-height: 0.9em;
 }
@@ -59,4 +59,11 @@ a {
         text-align: end;
         padding: 0;
     }
+}
+
+#otro, #otro:hover{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 0.9em;
 }

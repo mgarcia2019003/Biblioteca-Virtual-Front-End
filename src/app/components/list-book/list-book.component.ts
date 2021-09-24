@@ -16,7 +16,7 @@ export class ListBookComponent implements OnInit {
   public uri: string;
   token: string;
   books: [];
-  search;
+  searchBook;
   book;
   bookSelect: Book;
 
@@ -25,8 +25,8 @@ export class ListBookComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this. book = new Book('','','','',[],'','',null,null,'');
-    this.user = new User('','','','','',null,'','','');
+    this. book = new Book('','','','',[],'','',null,null,'',0);
+    this.user = new User('','','','','',null,'','','',0);
     this.token = localStorage.getItem('token');
     this.user = this.restUser.getUser();
     this.listBooks();

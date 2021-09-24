@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   token: string;
 
   constructor(private restUser:RestUserService, private route:Router) {
-    this.user = new User('','','','','','','','','');
+    this.user = new User('','','','','','','','','',0);
   }
 
   ngOnInit(): void {

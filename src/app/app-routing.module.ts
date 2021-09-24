@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { CreateBookComponent } from './components/create-book/create-book.component';
 import { ListBookComponent } from './components/list-book/list-book.component';
 import { ProfileBookComponent } from './components/profile-book/profile-book.component';
+import { BookSelectComponent } from './components/book-select/book-select.component';
 import { LoginGuardGuard } from './guards/login-guard.guard';
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'createBook', component: CreateBookComponent},
   {path: 'listBook', component: ListBookComponent},
   {path: 'profileBook', component: ProfileBookComponent},
+  {path: 'bookSelect', component: BookSelectComponent},
   {path: '**' ,pathMatch   : 'full', component:HomeComponent}
 ];
 

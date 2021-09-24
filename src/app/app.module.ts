@@ -23,6 +23,7 @@ import { RestBookService } from './services/restBook/rest-book.service';
 import { CreateBookComponent } from './components/create-book/create-book.component';
 import { ListBookComponent } from './components/list-book/list-book.component';
 import { ProfileBookComponent } from './components/profile-book/profile-book.component';
+import { BookSelectComponent } from './components/book-select/book-select.component';
 
 
 
@@ -39,14 +40,15 @@ import { ProfileBookComponent } from './components/profile-book/profile-book.com
     ProfileUserSelectComponent,
     CreateBookComponent,
     ListBookComponent,
-    ProfileBookComponent
+    ProfileBookComponent,
+    BookSelectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    GoogleChartsModule  
+    GoogleChartsModule
   ],
   providers: [
     RestUserService,

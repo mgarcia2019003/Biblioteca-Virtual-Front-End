@@ -6,12 +6,15 @@ import { RestUserService } from 'src/app/services/restUser/rest-user.service';
 
 @Component({
   selector: 'app-create-book',
-  templateUrl: './create-book.html',
-  styleUrls: ['./create-book.css']
+  templateUrl: './create-book.component.html',
+  styleUrls: ['./create-book.component.css']
 })
 export class CreateBookComponent implements OnInit {
   public book: Book;
   public books;
+  public token; 
+  public filesToUpload: Array<File>;
+  user; 
 
   constructor(private restBook: RestBookService) {
     this.book = new Book('','','','',[],'','',null, null,'',0);
@@ -32,5 +35,21 @@ export class CreateBookComponent implements OnInit {
       }
     },
     error => alert(error.message));
+  }
+
+  fileChange(fileInput){
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+  }
+
+  uploadImage(){
+    this.restBook.uploadImage(this.user._id,this.book._id, [], this.filesToUpload, this.token, 'cover')
+    .then((res:any) => {
+      if(res.book){
+        this.book.cover = res.cover;
+        localStorage.setItem('book', JSON.stringify(this.book));
+      }else{
+        alert(res.message)
+      }
+    })
   }
 }

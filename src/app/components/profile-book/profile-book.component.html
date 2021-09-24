@@ -1,6 +1,6 @@
 <body class="text-center">
-    <form class="form-signin" #leagueUpdate="ngForm" (ngSubmit)="onSubmit()">
-        <h1 style="font-weight: bold; text-transform: uppercase;word-wrap:break-word;">{{book.bookTitle}}</h1>
+    <form class="form-signin" #bookUpdate="ngForm" (ngSubmit)="onSubmit()">
+        <h1 style="font-weight: bold; text-transform: uppercase;word-wrap:break-word;">{{book.titleBook}}</h1>
         <br>
         <img data-toggle="modal" data-target="#imageModal" *ngIf="book.cover" id="cover" class ="mb-4" width="250" height="250" src="{{uri+'getCover/'+book.cover}}" alt="Portada de libro">
         <img data-toggle="modal" data-target="#imageModal" *ngIf="book.cover == '' || book.cover == undefined" id="cover" class ="mb-4" width="250" height="250" src="../../../assets/img/Libros.png" alt="imagen de una agenda">        

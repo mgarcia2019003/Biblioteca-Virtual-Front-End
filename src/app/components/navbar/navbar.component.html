@@ -7,6 +7,14 @@
       <a routerLink="/home" id=biblioname>
         Biblioteca<br>Virtual
       </a>
+
+      <a routerLink="/listBook" id=otro>
+        Ver Libros
+      </a>
+
+      <a routerLink="/listMagazine" id=otro>
+        Ver Revistas
+      </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,9 +40,9 @@
           </a>
           <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false">
             <li><a class="dropdown-item" routerLink="/profile">Perfil</a></li>
-            <!--<li><a class="dropdown-item" routerLink="/leagues">My Leagues</a></li>-->
-            <li><a class="dropdown-item" *ngIf="user.rol == 'ADMIN'" routerLink="/createUser">Create User</a></li>
-            <li><a class="dropdown-item" *ngIf="user.rol == 'ADMIN'" routerLink="/listUsers">List users</a></li>
+            <li><a class="dropdown-item" *ngIf="user.rol == 'ADMIN'" routerLink="/createBook">Crear libros</a></li>
+            <li><a class="dropdown-item" *ngIf="user.rol == 'ADMIN'" routerLink="/createBook">Crear revistas</a></li>
+            <li><a class="dropdown-item" *ngIf="user.rol == 'ADMIN'" routerLink="/listUsers">Listar usuarios</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="logOut()">LogOut</a></li>
           </ul>

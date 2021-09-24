@@ -19,7 +19,7 @@ export class ListUserComponent implements OnInit {
   constructor(private restUser: RestUserService, private route: Router) { }
 
   ngOnInit(): void {
-    this.user = new User('','','','','','','','','');
+    this.user = new User('','','','','','','','','',0);
     this.user
     this.listUsers();
   }
