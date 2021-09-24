@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   public optionsRol = ['USER', 'ADMIN'];
 
   constructor(private userService: RestUserService, private route: Router) {
-    this.user = new User('','','','','','','','','');
+    this.user = new User('','','','','','','','','',0);
   }
 
   ngOnInit(): void {

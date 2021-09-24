@@ -14,7 +14,7 @@ export class CreateBookComponent implements OnInit {
   public books;
 
   constructor(private restBook: RestBookService) {
-    this.book = new Book('','','','',[],'','',null, null,'');
+    this.book = new Book('','','','',[],'','',null, null,'',0);
     this.books = this.restBook.getBook();
   }
 
@@ -25,7 +25,7 @@ export class CreateBookComponent implements OnInit {
     this.restBook.createBook(this.book, this.books._id).subscribe((res:any) => {
       if(res.bookSaved){
         alert(res.message);
-        this.book = new Book('','','','',[],'','',null, null,'');
+        this.book = new Book('','','','',[],'','',null, null,'',0);
         statusForm.reset();
       }else{
         alert(res.message);

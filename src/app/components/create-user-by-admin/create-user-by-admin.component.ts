@@ -13,7 +13,7 @@ export class CreateUserByAdminComponent implements OnInit {
   public userLogg;
 
   constructor(private restUser: RestUserService) {
-    this.user = new User('','','','','','','','','');
+    this.user = new User('','','','','','','','','',0);
     this.userLogg = this.restUser.getUser();
   }
 
@@ -24,7 +24,7 @@ export class CreateUserByAdminComponent implements OnInit {
     this.restUser.saveUserByAdmin(this.user, this.userLogg._id).subscribe((res:any) => {
       if(res.userSaved){
         alert(res.message);
-        this.user = new User('','','','','','','','','');
+        this.user = new User('','','','','','','','','',0);
         statusForm.reset();
       }else{
         alert(res.message);
