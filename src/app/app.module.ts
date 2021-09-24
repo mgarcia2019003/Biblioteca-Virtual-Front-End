@@ -25,6 +25,9 @@ import { ListBookComponent } from './components/list-book/list-book.component';
 import { ProfileBookComponent } from './components/profile-book/profile-book.component';
 import { BookSelectComponent } from './components/book-select/book-select.component';
 
+import { RestMagazineService } from './services/restMagazine/rest-magazine.service';
+import { CreateMagazineComponent } from './components/create-magazine/create-magazine.component';
+
 
 
 @NgModule({
@@ -41,7 +44,8 @@ import { BookSelectComponent } from './components/book-select/book-select.compon
     CreateBookComponent,
     ListBookComponent,
     ProfileBookComponent,
-    BookSelectComponent
+    BookSelectComponent,
+    CreateMagazineComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,8 @@ import { BookSelectComponent } from './components/book-select/book-select.compon
   ],
   providers: [
     RestUserService,
-    RestBookService
+    RestBookService,
+    RestMagazineService
   ],
   bootstrap: [AppComponent]
 })

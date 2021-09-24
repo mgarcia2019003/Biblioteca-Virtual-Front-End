@@ -12,6 +12,7 @@ export class Magazine{
         public wordsMagazine: String,
         public copiesMagazines: Number,
         public avaliblesMagazines: Number,
+        public cover: String,
         public loanMagazines: Number
     ){}  
 }
