@@ -15,6 +15,9 @@ import { ProfileBookComponent } from './components/profile-book/profile-book.com
 import { BookSelectComponent } from './components/book-select/book-select.component';
 
 import { CreateMagazineComponent } from './components/create-magazine/create-magazine.component';
+import { ListMagazineComponent } from './components/list-magazine/list-magazine.component';
+import { ProfileMagazineComponent } from './components/profile-magazine/profile-magazine.component';
+import { MagazineSelectComponent } from './components/magazine-select/magazine-select.component';
 
 import { LoginGuardGuard } from './guards/login-guard.guard';
 
@@ -34,6 +37,9 @@ const routes: Routes = [
   {path: 'profileBook', component: ProfileBookComponent},
   {path: 'bookSelect', component: BookSelectComponent},
   {path: 'createMagazine', component: CreateMagazineComponent},
+  {path: 'listMagazine', component: ListMagazineComponent},
+  {path: 'profileMagazine', component: ProfileMagazineComponent},
+  {path: 'magazineSelect', component: MagazineSelectComponent},
   {path: '**' ,pathMatch   : 'full', component:HomeComponent}
 ];
 

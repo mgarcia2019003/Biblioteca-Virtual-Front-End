@@ -27,6 +27,9 @@ import { BookSelectComponent } from './components/book-select/book-select.compon
 
 import { RestMagazineService } from './services/restMagazine/rest-magazine.service';
 import { CreateMagazineComponent } from './components/create-magazine/create-magazine.component';
+import { ListMagazineComponent } from './components/list-magazine/list-magazine.component';
+import { ProfileMagazineComponent } from './components/profile-magazine/profile-magazine.component';
+import { MagazineSelectComponent } from './components/magazine-select/magazine-select.component';
 
 
 
@@ -45,7 +48,10 @@ import { CreateMagazineComponent } from './components/create-magazine/create-mag
     ListBookComponent,
     ProfileBookComponent,
     BookSelectComponent,
-    CreateMagazineComponent
+    CreateMagazineComponent,
+    ListMagazineComponent,
+    ProfileMagazineComponent,
+    MagazineSelectComponent
   ],
   imports: [
     BrowserModule,

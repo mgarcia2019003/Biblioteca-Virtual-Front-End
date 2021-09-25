@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>{{magazine.titleMagazine}}</title>
+    <link rel="stylesheet" href="magazine-select.component.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    
+    
+    <script type="application/ld+json">{
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": ""}
+    </script>
+
+
+
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#478ac9">
+  </head>
+  <body class="u-body" style="overflow: hidden; margin-bottom: 5rem;">
+    <section class="u-align-center u-clearfix u-section-1" id="sec-8c71">
+      <div class="u-clearfix u-sheet u-valign-middle-md u-sheet-1">
+        <p class="u-align-center u-text u-text-1" style="text-transform: uppercase;word-wrap:break-word;">{{magazine.titleMagazine}}</p>
+        <div *ngIf="!user; else buttonEdit"></div>
+        <ng-template #buttonEdit>
+          <button id="buttonEdit" type="button" *ngIf="user.rol == 'ADMIN'" (click)="obtenerData(magazine)">Editar o eliminar</button>
+        </ng-template>  
+        <br>  
+        <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover" id="cover" src="{{uri+'getImage/'+magazine.cover}}" alt="Portada" (click)="obtenerData(magazine)" routerLink="/profileMagazine">
+        <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover == '' || magazine.cover == undefined" id="cover" src="../../../assets/img/Libros.png" alt="No hay portada" (click)="obtenerData(magazine)" routerLink="/profileMagazine">        
+    
+            

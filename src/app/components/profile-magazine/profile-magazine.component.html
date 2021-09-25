@@ -1,0 +1,139 @@
+<body class="text-center">
+    <form class="form-signin" #magazineUpdate="ngForm" (ngSubmit)="onSubmit()">
+        <h1 style="font-weight: bold; text-transform: uppercase;word-wrap:break-word;">{{magazine.titleMagazine}}</h1>
+        <br>
+        <img data-toggle="modal" data-target="#imageModal" *ngIf="magazine.cover" id="cover" class ="mb-4" width="250" height="250" src="{{uri+'getCover/'+magazine.cover}}" alt="Portada de libro">
+        <img data-toggle="modal" data-target="#imageModal" *ngIf="magazine.cover == '' || magazine.cover == undefined" id="cover" class ="mb-4" width="250" height="250" src="../../../assets/img/Libros.png" alt="imagen de una agenda">        
+        <hr>       
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="inputTitle">Titulo</label>
+                <input [(ngModel)]="magazine.titleMagazine" name='titleMagazine' #titleMagazine="ngModel" class="form-control" id="inputTitle" type="text" placeholder="Título de la revista" required>
+                <span *ngIf="!titleMagazine.valid && titleMagazine.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label for="inputAuthor">Autor</label>
+                <input [(ngModel)]="magazine.authorMagazine" name='authorMagazine' #authorMagazine="ngModel" class="form-control" id="inputAuthor" type="text" placeholder="Autor de la revista" required>
+                <span *ngIf="!authorMagazine.valid && authorMagazine.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="inputDescription">Descripción revista</label>
+            <input [(ngModel)]="magazine.descriptionMagazine" name='descriptionMagazine' #descriptionMagazine="ngModel" class="form-control" id="inputDescription" type="text" placeholder="Descripción">
+        </div>
+
+        <div class="form-group">
+            <label for="inputTheme">Tema de la revista</label>
+            <input [(ngModel)]="magazine.themesMagazine" name='themesMagazine' #themesMagazine="ngModel" class="form-control" id="inputTheme" type="text" placeholder="Moda, estilo...">
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEdition">Edición</label>
+                <input [(ngModel)]="magazine.editionMagazine" name='editionMagazine' #editionMagazine="ngModel" class="form-control" id="inputEdition" type="String" placeholder="Edición" required>
+                <span *ngIf="!editionMagazine.valid && editionMagazine.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputFrecuency">Frecuencia</label>
+                <input [(ngModel)]="magazine.frecuencyMagazine" name='frecuencyMagazine' #frecuencyMagazine="ngModel" class="form-control" id="inputFrecuency" type="String" placeholder="Frecuencia en la que sale" required>
+                <span *ngIf="!frecuencyMagazine.valid && frecuencyMagazine.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputEjemplar">Ejemplar</label>
+                <input [(ngModel)]="magazine.ejemplarMagazine" name='ejemplarMagazine' #ejemplarMagazine="ngModel" class="form-control" id="inputEjemplar" type="number" placeholder="Numero de ejemplar" required>
+                <span *ngIf="!ejemplarMagazine.valid && ejemplarMagazine.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCopies">Copias</label>
+                <input [(ngModel)]="magazine.copiesMagazines" name='copiesMagazines' #copiesMagazines="ngModel" class="form-control" id="inputCopies" type="number" placeholder="Copias en el sistema" required>
+                <span *ngIf="!copiesMagazines.valid && copiesMagazines.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputAvalibles">Disponibles</label>
+                <input [(ngModel)]="magazine.avaliblesMagazines" name='avaliblesMagazines' #avaliblesMagazines="ngModel" class="form-control" id="inputAvalibles" type="number" placeholder="Disponibles" required>
+                <span *ngIf="!avaliblesMagazines.valid && avaliblesMagazines.touched">
+                    Campo obligatorio
+                </span>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn col-lg-3 mx-2" id="buttonUpdate" [disabled]="!magazineUpdate.form.valid">Actualizar</button>
+        <button type="button" class="btn col-lg-3 mx-2" id="buttonDelete" data-toggle="modal" data-target="#exampleModal" >Eliminar Revista</button>        
+    </form>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Danger zone!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <h3>This action is irreversible!</h3>
+            <span>Enter passsword {{user.username}}</span>
+            <form #userRemoved='ngForm'>
+                <label for="passwordRemove"></label>
+                <input [(ngModel)]='possiblePass' type="password" id='passwordRemove' name='possiblePass' required>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" data-dismiss="modal" class="btn btn-danger" (click)='deleteMagazine()' [disabled]="!userRemoved.form.valid">I'm sure</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="imageModalLabel">Magazine cover</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <h3>Sube tu imagen</h3>
+            <form #formUpload='ngForm'>
+                <label for="inputImage"></label>
+                <input type="file" name="cover" id="inputImage" (change)="fileChange($event)" required>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" data-dismiss="modal" class="btn btn-primary" (click)="uploadImage()">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>

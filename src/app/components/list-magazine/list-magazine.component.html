@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Listado de revistas</title>
+    <link rel="stylesheet" href="list-magazine.component.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 3.17.2, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta property="og:title" content="Home">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#478ac9">
+  </head>
+
+  <body class="u-body">     
+    <section class="u-clearfix u-section-1" id="sec-9b13">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-1" style="text-align: center;">REVISTAS</p>
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+              <!--<div class="empty u-container-style u-list-item u-repeater-item" *ngFor="let book of books | searchBook:searchBook">-->
+                <div class="u-container-layout u-similar-container u-container-layout-1">
+                  <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover" id="cover" src="{{uri+'getImage/'+magazine.cover}}" alt="Portada" (click)="obtenerData(book)" routerLink="/selectMagazine">
+                  <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover == '' || magazine.cover == undefined" id="cover" src="../../../assets/img/Libros.png" alt="No hay portada" (click)="obtenerData(magazine)" routerLink="/selectMagazine">        
+                  <h3 class="u-text u-text-2" style="font-weight: bold; text-transform: uppercase; cursor: pointer;" (click)="obtenerData(magazine)" routerLink="/profileMagazine">{{magazine.titleMagazine}} </h3>
+                  <h4 class="u-text u-text-1" style="font-weight: lighter ; text-transform: uppercase; cursor: pointer;" (click)="obtenerData(magazine)" routerLink="/profileMagazine">{{magazine.authorMagazine}}</h4>
+                  <div class="u-border-1 u-border-grey-dark-1 u-expanded-width u-line u-line-horizontal u-line-1"></div>
+                  <a class="u-border-1 u-border-black u-border-hover-palette-2-base u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-text-hover-palette-2-base u-btn-1" (click)="obtenerData(magazine)">Rentado: || {{magazine.loanMagazines}}</a>
+                  <a class="u-border-1 u-border-black u-border-hover-palette-2-base u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-text-hover-palette-2-base u-btn-1" (click)="obtenerData(magazine)">Ver más...</a>
+                </div>
+              </div>
+          </div>
+        </div>
