@@ -25,7 +25,6 @@ export class MagazineSelectComponent implements OnInit {
     }
 
     ngOnInit(): void {
-    this.magazine = this.restMagazine.getMagazine();
     this.magazine = this.restMagazine.getMagazineSelect();
     this.user = JSON.parse(localStorage.getItem('user'));
     }

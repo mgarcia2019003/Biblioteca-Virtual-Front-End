@@ -33,9 +33,58 @@
           <button id="buttonEdit" type="button" *ngIf="user.rol == 'admin'" (click)="obtenerData(book)">Editar o eliminar</button>
         </ng-template>  
         <br>  
-        <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="book.cover" id="cover" src="{{uri+'getImage/'+book.cover}}" alt="Portada" (click)="obtenerData(book)" routerLink="/profileBook">
-        <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="book.cover == '' || book.cover == undefined" id="cover" src="../../../assets/img/Libros.png" alt="No hay portada" (click)="obtenerData(book)" routerLink="/profileBook">        
+        <img style="border-radius: 6px; cursor: pointer; width: 5cm;" data-image-width="2000" data-image-height="1333" *ngIf="book.cover" id="cover" src="{{uri+'getImage/'+book.cover}}" alt="Portada">
+        <img style="border-radius: 6px; cursor: pointer; width: 5cm;"  data-image-width="2000" data-image-height="1333" *ngIf="book.cover == '' || book.cover == undefined" id="cover" src="../../../assets/img/Libros.png" alt="No hay portada" >        
 
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+              <b for="inputTitle">Titulo</b>
+              <br>
+              <label>{{book.titleBook}}</label>
+          </div>
+
+
+          <div class="form-group col-md-6">
+            <b for="inputTitle">Autor</b>
+            <br>
+            <label>{{book.authorBook}}</label>
+        </div>
+
+      </div>
+
+
+      <div class="form-group col-md-6 text-center">
+        <b for="inputTitle">Descripción</b>
+        <br>
+        <label>{{book.descriptionBook}}</label>
+      </div>
+
+      <div class="form-group col-md-6">
+        <b for="inputTitle">Tema</b>
+        <br>
+        <label>{{book.themesBook}}</label>
+      </div>
+
+      
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <b for="inputTitle">Copias</b>
+        <br>
+        <label>{{book.copiesBooks}}</label>
+      </div>
+
+        <div class="form-group col-md-6">
+          <b for="inputTitle">Disponibles</b>
+          <br>
+          <label>{{book.avaliblesBooks}}</label>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+      <button id="buttonEdit" type="button" *ngIf="book.avaliblesBooks != 0">Rentar</button>
 
         
     

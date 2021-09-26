@@ -25,32 +25,38 @@ export class ListMagazineComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.magazine = new Magazine('','','','','','',null,'','',null,null,'',0);
-    this.user = new User('','','','','',null,'','','',0);
     this.token = localStorage.getItem('token');
     this.user = this.restUser.getUser();
-    this.listMagazines();
+    this.magazine = new Magazine('','','','','','',null,'','',null,null,'',0);
+    if(this.token == null){
+      this.listMagazines();
+    }else{
+      this.listMagazines();
+    }   
   }
 
   listMagazines(){
-    this.restMagazine.getMagazine().subscribe((res:any) => {
+    this.restMagazine.getMagazine().subscribe((res : any)=>{
       if(res.magazineFind){
-        if(this.magazines != undefined && this.magazines.length > 0){
-          this.magazines = this.magazines+res.leagueFind;
-        }else{
-          this.magazines = res.magazineFind;
-        }
+        this.listMagazines = res.magazineFind;
       }else{
-        alert(res.message)
+        alert(res.message);
       }
     },
-    error => alert(error.message));
+    error => alert(error.error.message));
   }
 
-  obtenerData(league){
-    this.magazineSelect = league;
+  obtenerData(magazine){
+    this.magazineSelect = magazine;
     localStorage.setItem('magazineSelect', JSON.stringify(this.magazineSelect));
     this.route.navigateByUrl('magazineSelect')
   }
 
 }
+
+
+/*this.magazine = new Magazine('','','','','','',null,'','',null,null,'',0);
+    this.user = new User('','','','','',null,'','','',0);
+    this.token = localStorage.getItem('token');
+    this.user = this.restUser.getUser();
+    this.listMagazines();*/

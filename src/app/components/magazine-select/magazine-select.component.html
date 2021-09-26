@@ -33,7 +33,78 @@
           <button id="buttonEdit" type="button" *ngIf="user.rol == 'admin'" (click)="obtenerData(magazine)">Editar o eliminar</button>
         </ng-template>  
         <br>  
-        <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover" id="cover" src="{{uri+'getImage/'+magazine.cover}}" alt="Portada" (click)="obtenerData(magazine)" routerLink="/profileMagazine">
-        <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover == '' || magazine.cover == undefined" id="cover" src="../../../assets/img/Libros.png" alt="No hay portada" (click)="obtenerData(magazine)" routerLink="/profileMagazine">        
+        <img style="border-radius: 6px; cursor: pointer; width: 5cm;" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover" id="cover" src="{{uri+'getImage/'+magazine.cover}}" alt="Portada">
+        <img style="border-radius: 6px; cursor: pointer; width: 5cm;" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover == '' || magazine.cover == undefined" id="cover" src="../../../assets/img/Libros.png" alt="No hay portada" >        
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+              <b for="inputTitle">Titulo</b>
+              <br>
+              <label>{{magazine.titleMagazine}}</label>
+          </div>
+
+
+          <div class="form-group col-md-6">
+            <b for="inputTitle">Autor</b>
+            <br>
+            <label>{{magazine.authorMagazine}}</label>
+        </div>
+
+      </div>
+
+
+      <div class="form-group col-md-6 text-center">
+        <b for="inputTitle">Descripción</b>
+        <br>
+        <label>{{magazine.descriptionMagazine}}</label>
+      </div>
+
+      <div class="form-group col-md-6">
+        <b for="inputTitle">Tema</b>
+        <br>
+        <label>{{magazine.themesMagazine}}</label>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <b for="inputTitle">Edición</b>
+          <br>
+          <label>{{magazine.editionMagazine}}</label>
+        </div>
+
+        <div class="form-group col-md-6">
+          <b for="inputTitle">Frecuencia</b>
+          <br>
+          <label>{{magazine.frecuencyMagazine}}</label>
+        </div>
+
+        <div class="form-group col-md-6">
+          <b for="inputTitle">Ejemplar</b>
+          <br>
+          <label>{{magazine.ejemplarMagazine}}</label>
+        </div>
+    </div>
+
+
+      
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <b for="inputTitle">Copias</b>
+        <br>
+        <label>{{magazine.copiesMagazines}}</label>
+      </div>
+
+        <div class="form-group col-md-6">
+          <b for="inputTitle">Disponibles</b>
+          <br>
+          <label>{{magazine.avaliblesMagazines}}</label>
+        </div>
+    </div>
     
             
+    <br>
+    <br>
+
+      <button id="buttonEdit" type="button" *ngIf="magazine.avaliblesMagazines != 0">Rentar</button>

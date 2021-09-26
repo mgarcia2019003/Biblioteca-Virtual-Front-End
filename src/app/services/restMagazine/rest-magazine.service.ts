@@ -66,13 +66,8 @@ export class RestMagazineService {
   }
 
   getMagazine(){
-    let magazine = JSON.parse(localStorage.getItem('magazine'));
-    if(magazine != undefined || magazine != null){
-      this.magazine = magazine;
-    }else{
-      this.magazine = null;
-    }
-    return this.magazine;
+    return this.http.get(this.uri+'/listMagazine', this.httpOptions)
+    .pipe(map(this.extractData));
   }
 
   getMagazineSelect(){
