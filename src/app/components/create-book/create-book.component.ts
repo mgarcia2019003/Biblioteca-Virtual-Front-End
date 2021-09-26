@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Book } from 'src/app/models/book';
 import { User } from 'src/app/models/user';
 import { RestBookService } from 'src/app/services/restBook/rest-book.service';
@@ -14,22 +15,23 @@ export class CreateBookComponent implements OnInit {
   public books;
   public token; 
   public filesToUpload: Array<File>;
-  user; 
+  public user: User; 
 
-  constructor(private restBook: RestBookService) {
+  constructor(private restBook: RestBookService, private restUser:RestUserService, private route: Router) {
     this.book = new Book('','','','',[],'','',null, null,'',0);
-    this.books = this.restBook.getBook();
+    this.user = this.restUser.getUser();
   }
 
   ngOnInit(): void {
   }
 
   onSubmit(statusForm){
-    this.restBook.createBook(this.book, this.books._id).subscribe((res:any) => {
+    this.restBook.createBook(this.user._id, this.book).subscribe((res:any) => {
       if(res.bookSaved){
         alert(res.message);
         this.book = new Book('','','','',[],'','',null, null,'',0);
         statusForm.reset();
+        this.route.navigateByUrl('listBook');
       }else{
         alert(res.message);
       }

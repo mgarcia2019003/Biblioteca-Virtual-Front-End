@@ -14,41 +14,41 @@ import { RestUserService } from 'src/app/services/restUser/rest-user.service';
 export class ListBookComponent implements OnInit {
   public user: User;
   public uri: string;
+  public book: Book;
   token: string;
   books: [];
+  listBooks: [];
   searchBook;
-  book;
   bookSelect: Book;
 
   constructor(private restBook: RestBookService, private restUser:RestUserService, private route: Router) { 
+    this.user = this.restUser.getUser(); 
     this.uri = CONNECTION.URI;
   }
 
   ngOnInit(): void {
-    this. book = new Book('','','','',[],'','',null,null,'',0);
-    this.user = new User('','','','','',null,'','','',0);
     this.token = localStorage.getItem('token');
-    this.user = this.restUser.getUser();
-    this.listBooks();
+    if(this.token == null){
+      this.listBook();
+    }else{
+      this.listBook();
+    }   
   }
 
-  listBooks(){
-    this.restBook.getBook().subscribe((res:any) => {
+  listBook(){
+    this.restBook.getBook().subscribe((res : any)=>{
       if(res.bookFind){
-        if(this.books != undefined && this.books.length > 0){
-          this.books = this.books+res.leagueFind;
-        }else{
-          this.books = res.bookFind;
-        }
+        this.listBooks = res.bookFind;
       }else{
-        alert(res.message)
+        alert(res.message);
       }
     },
-    error => alert(error.message));
+    error => alert(error.error.message));
   }
+  
 
-  obtenerData(league){
-    this.bookSelect = league;
+  obtenerData(book){
+    this.bookSelect = book;
     localStorage.setItem('bookSelect', JSON.stringify(this.bookSelect));
     this.route.navigateByUrl('bookSelect')
   }

@@ -30,10 +30,13 @@
         <p class="u-align-center u-text u-text-1" style="text-transform: uppercase;word-wrap:break-word;">{{book.titleBook}}</p>
         <div *ngIf="!user; else buttonEdit"></div>
         <ng-template #buttonEdit>
-          <button id="buttonEdit" type="button" *ngIf="user.rol == 'ADMIN'" (click)="obtenerData(book)">Editar o eliminar</button>
+          <button id="buttonEdit" type="button" *ngIf="user.rol == 'admin'" (click)="obtenerData(book)">Editar o eliminar</button>
         </ng-template>  
         <br>  
         <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="book.cover" id="cover" src="{{uri+'getImage/'+book.cover}}" alt="Portada" (click)="obtenerData(book)" routerLink="/profileBook">
         <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="book.cover == '' || book.cover == undefined" id="cover" src="../../../assets/img/Libros.png" alt="No hay portada" (click)="obtenerData(book)" routerLink="/profileBook">        
+
+
+        
     
             

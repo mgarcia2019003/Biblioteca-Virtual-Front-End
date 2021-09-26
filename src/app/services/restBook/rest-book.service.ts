@@ -66,13 +66,8 @@ export class RestBookService {
   }
 
   getBook(){
-    let book = JSON.parse(localStorage.getItem('book'));
-    if(book != undefined || book != null){
-      this.book = book;
-    }else{
-      this.book = null;
-    }
-    return this.book;
+    return this.http.get(this.uri+'/listBook', this.httpOptions)
+    .pipe(map(this.extractData));
   }
 
   getBookSelect(){

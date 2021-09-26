@@ -30,7 +30,7 @@
         <p class="u-align-center u-text u-text-1" style="text-transform: uppercase;word-wrap:break-word;">{{magazine.titleMagazine}}</p>
         <div *ngIf="!user; else buttonEdit"></div>
         <ng-template #buttonEdit>
-          <button id="buttonEdit" type="button" *ngIf="user.rol == 'ADMIN'" (click)="obtenerData(magazine)">Editar o eliminar</button>
+          <button id="buttonEdit" type="button" *ngIf="user.rol == 'admin'" (click)="obtenerData(magazine)">Editar o eliminar</button>
         </ng-template>  
         <br>  
         <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover" id="cover" src="{{uri+'getImage/'+magazine.cover}}" alt="Portada" (click)="obtenerData(magazine)" routerLink="/profileMagazine">

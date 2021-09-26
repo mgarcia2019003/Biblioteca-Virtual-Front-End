@@ -1,4 +1,5 @@
 import { NullTemplateVisitor } from '@angular/compiler';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Magazine } from 'src/app/models/magazine';
 import { User } from 'src/app/models/user';
@@ -15,22 +16,23 @@ export class CreateMagazineComponent implements OnInit {
   public magazines;
   public token; 
   public filesToUpload: Array<File>;
-  user; 
+  public user: User; 
 
-  constructor(private restMagazine: RestMagazineService) {
+  constructor(private restMagazine: RestMagazineService, private restUser:RestUserService, private route: Router) {
     this.magazine = new Magazine('','','','','','',null,'','',null,null,'',0);
-    this.magazines = this.restMagazine.getMagazine();
+    this.user = this.restUser.getUser();
   }
 
   ngOnInit(): void {
   }
 
   onSubmit(statusForm){
-    this.restMagazine.createMagazine(this.magazine, this.magazines._id).subscribe((res:any) => {
+    this.restMagazine.createMagazine(this.user._id, this.magazine).subscribe((res:any) => {
       if(res.magazineSaved){
         alert(res.message);
         this.magazine = new Magazine('','','','','','',null,'','',null,null,'',0);
         statusForm.reset();
+        this.route.navigateByUrl('listMagazine');
       }else{
         alert(res.message);
       }

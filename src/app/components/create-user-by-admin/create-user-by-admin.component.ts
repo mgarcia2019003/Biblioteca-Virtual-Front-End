@@ -9,7 +9,7 @@ import { RestUserService } from 'src/app/services/restUser/rest-user.service';
 })
 export class CreateUserByAdminComponent implements OnInit {
   public user: User;
-  public optionsRol = ['USER', 'ADMIN'];
+  public optionsRol = ['user', 'admin'];
   public userLogg;
 
   constructor(private restUser: RestUserService) {

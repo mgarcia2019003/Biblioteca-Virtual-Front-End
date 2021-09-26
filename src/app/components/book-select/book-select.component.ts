@@ -25,7 +25,6 @@ export class BookSelectComponent implements OnInit {
     }
 
     ngOnInit(): void {
-    this.book = this.restBook.getBook();
     this.book = this.restBook.getBookSelect();
     this.user = JSON.parse(localStorage.getItem('user'));
     }

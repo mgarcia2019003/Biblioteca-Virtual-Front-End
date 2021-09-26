@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   public user:User;
-  public optionsRol = ['USER', 'ADMIN'];
+  public optionsRol = ['user', 'admin'];
 
   constructor(private userService: RestUserService, private route: Router) {
     this.user = new User('','','','','','','','','',0);
