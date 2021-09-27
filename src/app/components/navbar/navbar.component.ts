@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Book } from 'src/app/models/book';
+import { RestBookService } from 'src/app/services/restBook/rest-book.service';
 import { RestUserService } from '../../services/restUser/rest-user.service';
 import { CONNECTION } from '../../services/global';
 
@@ -12,8 +14,9 @@ export class NavbarComponent implements OnInit {
   token: string;
   user;
   uri;
+  public book: Book;
 
-  constructor(private route:Router, private restUser: RestUserService) {
+  constructor(private route:Router, private restUser: RestUserService,  private restBook: RestBookService) {
 
   }
 
@@ -32,5 +35,16 @@ export class NavbarComponent implements OnInit {
     localStorage.clear();
     this.route.navigateByUrl('home')
   }
-
+  
+  listBook(){
+    this.restBook.getBook().subscribe((res : any)=>{
+      if(res.bookFind){
+        this.book = res.bookFind;
+        console.log(res.message);
+      }else{
+        alert(res.message);
+      }
+    },
+    error => alert(error.error.message));
+  }
 }

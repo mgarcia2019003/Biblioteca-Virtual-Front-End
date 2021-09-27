@@ -17,6 +17,7 @@ export class ListMagazineComponent implements OnInit {
   token: string;
   magazines: [];
   searchMagazine;
+  listMagazines: [];
   magazine;
   magazineSelect: Magazine;
 
@@ -29,16 +30,17 @@ export class ListMagazineComponent implements OnInit {
     this.user = this.restUser.getUser();
     this.magazine = new Magazine('','','','','','',null,'','',null,null,'',0);
     if(this.token == null){
-      this.listMagazines();
+      this.listMagazine();
     }else{
-      this.listMagazines();
+      this.listMagazine();
     }   
   }
 
-  listMagazines(){
+  listMagazine(){
     this.restMagazine.getMagazine().subscribe((res : any)=>{
       if(res.magazineFind){
         this.listMagazines = res.magazineFind;
+        console.log(res.message);
       }else{
         alert(res.message);
       }

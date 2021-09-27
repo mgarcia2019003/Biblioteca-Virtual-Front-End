@@ -17,30 +17,29 @@ export class ListBookComponent implements OnInit {
   public book: Book;
   token: string;
   books: [];
-  listBooks: [];
+  public listBooks: [];
   searchBook;
+  data = [];
   bookSelect: Book;
 
   constructor(private restBook: RestBookService, private restUser:RestUserService, private route: Router) { 
-   
+    this.user = this.restUser.getUser();
     this.uri = CONNECTION.URI;
   }
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.user = this.restUser.getUser();
-    this.book = new Book('','Hola','Hola','',[],'','',null, 10,'',10);
-    if(this.token == null){
-      this.listBook();
-    }else{
-      this.listBook();
-    }   
+    /*this.book = new Book('','','','',[],'','',null, null,'',0);
+    this.book = new Book('','Hola','Hola','',[],'','',null, 10,'',10);*/
+    this.listBook();
   }
 
   listBook(){
     this.restBook.getBook().subscribe((res : any)=>{
       if(res.bookFind){
-        this.listBooks = res.bookFind;
+        this.book = res.bookFind;
+        console.log(res.message);
       }else{
         alert(res.message);
       }
