@@ -29,7 +29,7 @@ export class ListBookComponent implements OnInit {
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.user = this.restUser.getUser();
-    this.book = new Book('Hola','Hola','Hola','',[],'','',null, 10,'',10);
+    this.book = new Book('','Hola','Hola','',[],'','',null, 10,'',10);
     if(this.token == null){
       this.listBook();
     }else{
