@@ -1,4 +1,37 @@
-<!DOCTYPE html>
+<h1>LIBROS</h1>
+<input [(ngModel)]="searchBook" type="search" placeholder="Busca el libro por su nombre" name="searchBook" class="searchHover u-border-2 u-border-grey-5 u-input u-input-rectangle u-radius-25 u-white">
+<div class="empty u-container-style u-list-item u-repeater-item" *ngFor="let book of books | searchBook:searchBook"></div>
+<div style="overflow-x:auto; margin-bottom: 2em;">
+    <br>
+    <table>
+        <thead>            
+            <tr>
+              <th>No.</th>
+              <th>Titulo</th> 
+              <th>Autor</th>       
+              <th>Tema</th>
+              <th>Disponibles</th>
+              <th>Copias</th>
+              <th>Veces rentado</th>
+              <th>Opciones</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let book of books let i = index">
+          <td>{{i+1}}</td>
+          <td>{{book.titleBook}}</td>
+          <td>{{book.authorBook}}</td>
+          <td>{{book.themesBook}}</td>
+          <td>{{book.avaliblesBooks}}</td>
+          <td>{{book.copiesBooks}}</td>
+          <td>{{book.loanBooks}}</td>
+            
+            <td><button id="buttonEdit" type="button" (click)="obtenerData(book)">Ver más...</button></td>
+        </tr>            
+    </table>
+  </div>
+
+
+<!--<!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +62,7 @@
 
         <div class="u-expanded-width u-list u-list-1">
           <div class="u-repeater u-repeater-1">
-              <!--<div class="empty u-container-style u-list-item u-repeater-item" *ngFor="let book of books | searchBook:searchBook">-->
+              //<div class="empty u-container-style u-list-item u-repeater-item" *ngFor="let book of books | searchBook:searchBook">
                 <div class="u-container-layout u-similar-container u-container-layout-1">
                   <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="book.cover" id="cover" src="{{uri+'getImage/'+ book.cover}}" alt="Portada" (click)="obtenerData(book)" routerLink="/selectBook">
                   <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="book.cover == '' || book.cover == undefined" id="cover" src="../../../assets/img/Libros.png" alt="No hay portada" (click)="obtenerData(book)" routerLink="/selectBook">
@@ -40,4 +73,4 @@
                   <a class="u-border-1 u-border-black u-border-hover-palette-2-base u-btn u-btn-rectangle u-button-style u-none u-text-body-color u-text-hover-palette-2-base u-btn-1" (click)="obtenerData(book)">Ver más...</a>
                 </div>
               </div>
-          </div>
+          </div>-->

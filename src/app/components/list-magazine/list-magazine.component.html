@@ -1,4 +1,47 @@
-<!DOCTYPE html>
+<h1>REVISTAS</h1>
+<input [(ngModel)]="searchMagazine" type="search" placeholder="Busca la revista por su nombre" name="searchMagazine" class="searchHover u-border-2 u-border-grey-5 u-input u-input-rectangle u-radius-25 u-white">
+<div class="empty u-container-style u-list-item u-repeater-item" *ngFor="let magazine of magazines | searchMagazine:searchMagazine"></div>
+<div style="overflow-x:auto; margin-bottom: 2em;">
+    <br>
+    <table>
+        <thead>            
+            <tr>
+              <th>No.</th>
+              <th>Titulo</th> 
+              <th>Autor</th>      
+              <th>Edición</th>
+              <th>Frecuencia</th>
+              <th>Ejemplar</th>
+              <th>Tema</th>
+              <th>Disponibles</th>
+              <th>Copias</th>
+              <th>Veces rentado</th>
+              <th>Opciones</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let magazine of magazines let i = index">
+          <td>{{i+1}}</td>
+          <td>{{magazine.titleMagazine}}</td>
+          <td>{{magazine.authorMagazine}}</td>
+          <td>{{magazine.editionMagazine}}</td>
+          <td>{{magazine.frecuencyMagazine}}</td>
+          <td>{{magazine.ejemplarMagazine}}</td>
+          <td>{{magazine.themesMagazine}}</td>
+          <td>{{magazine.avaliblesMagazines}}</td>
+          <td>{{magazine.copiesMagazines}}</td>
+          <td>{{magazine.loanMagazines}}</td>
+            
+            <td><button id="buttonEdit" type="button" (click)="obtenerData(book)">Ver más...</button></td>
+        </tr>            
+    </table>
+  </div>
+
+
+
+
+
+
+<!--<!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +70,7 @@
         <p class="u-text u-text-1" style="text-align: center;">REVISTAS</p>
         <div class="u-expanded-width u-list u-list-1">
           <div class="u-repeater u-repeater-1">
-              <!--<div class="empty u-container-style u-list-item u-repeater-item" *ngFor="let book of books | searchBook:searchBook">-->
+              //<div class="empty u-container-style u-list-item u-repeater-item" *ngFor="let book of books | searchBook:searchBook">
                 <div class="u-container-layout u-similar-container u-container-layout-1">
                   <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover" id="cover" src="{{uri+'getImage/'+magazine.cover}}" alt="Portada" (click)="obtenerData(book)" routerLink="/selectMagazine">
                   <img style="border-radius: 6px; cursor: pointer;" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" *ngIf="magazine.cover == '' || magazine.cover == undefined" id="cover" src="../../../assets/img/Libros.png" alt="No hay portada" (click)="obtenerData(magazine)" routerLink="/selectMagazine">        
@@ -39,4 +82,4 @@
                 </div>
               </div>
           </div>
-        </div>
+        </div>-->

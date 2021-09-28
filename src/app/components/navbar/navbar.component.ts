@@ -35,16 +35,4 @@ export class NavbarComponent implements OnInit {
     localStorage.clear();
     this.route.navigateByUrl('home')
   }
-  
-  listBook(){
-    this.restBook.getBook().subscribe((res : any)=>{
-      if(res.bookFind){
-        this.book = res.bookFind;
-        console.log(res.message);
-      }else{
-        alert(res.message);
-      }
-    },
-    error => alert(error.error.message));
-  }
 }

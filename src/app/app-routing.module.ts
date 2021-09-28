@@ -19,6 +19,8 @@ import { ListMagazineComponent } from './components/list-magazine/list-magazine.
 import { ProfileMagazineComponent } from './components/profile-magazine/profile-magazine.component';
 import { MagazineSelectComponent } from './components/magazine-select/magazine-select.component';
 
+import { BookReportComponent } from './components/book-report/book-report.component';
+
 import { LoginGuardGuard } from './guards/login-guard.guard';
 
 const routes: Routes = [
@@ -40,6 +42,7 @@ const routes: Routes = [
   {path: 'listMagazine', component: ListMagazineComponent},
   {path: 'profileMagazine', component: ProfileMagazineComponent},
   {path: 'magazineSelect', component: MagazineSelectComponent},
+  {path: 'bookReport', component: BookReportComponent},
   {path: '**' ,pathMatch   : 'full', component:HomeComponent}
 ];
 

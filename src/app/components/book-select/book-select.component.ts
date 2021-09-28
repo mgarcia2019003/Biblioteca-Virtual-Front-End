@@ -39,7 +39,7 @@ export class BookSelectComponent implements OnInit {
     }
 
     createBookLoan(){
-      this.restLoan.createBookLoan(this.user._id, this.book).subscribe((res:any) => {
+      this.restLoan.createBookLoan(this.user._id, this.book._id).subscribe((res:any) => {
         if(res.loanSaved){
           alert(res.message);
           this.today = new Date().toISOString().slice(0,10);

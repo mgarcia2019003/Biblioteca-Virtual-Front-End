@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class RestLoanService {
+export class RestReportService {
   
   public uri:string;
   public httpOptions = {
@@ -22,8 +22,6 @@ export class RestLoanService {
   };
 
   public token;
-  public magazine;
-  public book;
 
   private extractData(res: Response){
     let body = res;
@@ -43,16 +41,15 @@ export class RestLoanService {
     }
     return this.token;
   }
-
-  createBookLoan(user, book){
-    let params = JSON.stringify(book);
-    return this.http.post(this.uri+user+'/createBookLoan/'+book, params, this.httpOptions)
+  
+  sortMagazine(){
+    return this.http.get(this.uri+'/sortMagazine', this.httpOptions)
     .pipe(map(this.extractData));
   }
 
-  createMagazineLoan(user, magazine){
-    let params = JSON.stringify(magazine);
-    return this.http.post(this.uri+user+'/createMagazineLoan/'+magazine, params, this.httpOptions)
+  sortBook(){
+    return this.http.get(this.uri+'/sortBook', this.httpOptions)
     .pipe(map(this.extractData));
   }
+
 }

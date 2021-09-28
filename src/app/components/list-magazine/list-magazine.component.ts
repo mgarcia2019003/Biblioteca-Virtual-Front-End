@@ -12,34 +12,34 @@ import { RestUserService } from 'src/app/services/restUser/rest-user.service';
   styleUrls: ['./list-magazine.component.css']
 })
 export class ListMagazineComponent implements OnInit {
-  public user: User;
-  public uri: string;
-  token: string;
   magazines: [];
   searchMagazine;
-  listMagazines: [];
   magazine;
   magazineSelect: Magazine;
 
   constructor(private restMagazine: RestMagazineService, private restUser:RestUserService, private route: Router) { 
-    this.uri = CONNECTION.URI;
+ 
   }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('token');
+    /*this.token = localStorage.getItem('token');
     this.user = this.restUser.getUser();
     this.magazine = new Magazine('','','','','','',null,'','',null,null,'',0);
     if(this.token == null){
       this.listMagazine();
     }else{
       this.listMagazine();
-    }   
+    }   */
+
+    this.magazine = new Magazine('','','','','','',null,'','',null,null,'',0);
+    this.magazine
+    this.listMagazine();
   }
 
   listMagazine(){
     this.restMagazine.getMagazine().subscribe((res : any)=>{
-      if(res.magazineFind){
-        this.listMagazines = res.magazineFind;
+      if(res.magazines){
+        this.magazines = res.magazines;
         console.log(res.message);
       }else{
         alert(res.message);

@@ -31,6 +31,13 @@ import { ListMagazineComponent } from './components/list-magazine/list-magazine.
 import { ProfileMagazineComponent } from './components/profile-magazine/profile-magazine.component';
 import { MagazineSelectComponent } from './components/magazine-select/magazine-select.component';
 
+import { RestLoanService } from './services/restLoan/rest-loan.service';
+import { RestReportService } from './services/restReport/rest-report.service';
+
+import { SearchBookPipe } from './pipes/searchBook/searchBook.pipe';
+import { SearchMagazinePipe } from './pipes/searchMagazine/searchMagazine.pipe';
+
+
 
 
 @NgModule({
@@ -51,7 +58,9 @@ import { MagazineSelectComponent } from './components/magazine-select/magazine-s
     CreateMagazineComponent,
     ListMagazineComponent,
     ProfileMagazineComponent,
-    MagazineSelectComponent
+    MagazineSelectComponent,
+    SearchBookPipe,
+    SearchMagazinePipe
   ],
   imports: [
     BrowserModule,
@@ -63,7 +72,9 @@ import { MagazineSelectComponent } from './components/magazine-select/magazine-s
   providers: [
     RestUserService,
     RestBookService,
-    RestMagazineService
+    RestMagazineService,
+    RestLoanService,
+    RestReportService
   ],
   bootstrap: [AppComponent]
 })

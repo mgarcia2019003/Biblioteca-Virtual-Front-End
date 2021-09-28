@@ -1,0 +1,28 @@
+<h1>Estos son los libros que más se han rentado</h1>
+<div style="overflow-x:auto; margin-bottom: 2em;">
+    <br>
+    <table>
+        <thead>            
+            <tr>
+                <th>No.</th>
+                <th>Titulo</th> 
+                <th>Autor</th>            
+                <th>Edición</th>
+                <th>Tema</th>
+                <th>Disponibles</th>
+                <th>Copias</th>
+                <th>Veces rentado</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let book of books let i = index">
+            <td>{{i+1}}</td>
+            <td>{{book.titleBook}}</td>
+            <td>{{book.authorBook}}</td>
+            <td>{{book.editionBook}}</td>
+            <td>{{book.themesBook}}</td>
+            <td>{{book.avaliblesBooks}}</td>
+            <td>{{book.copiesBooks}}</td>
+            <td>{{book.loanBooks}}</td>
+        </tr>            
+    </table>
+  </div>
