@@ -60,10 +60,22 @@ export class RestBookService {
     .pipe(map(this.extractData));
   }
 
-  deleteBook(user, book){
-    return this.http.post(this.uri+user+'/deleteBook/'+book, {} ,this.httpOptionAuth)
+  /*deleteBook(user, book){
+    return this.http.post(this.uri+user+'/deleteBook/'+book ,this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }*/
+
+
+  deleteBook(user, book, password){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+
+    return this.http.put(this.uri+user+'/deleteBook/'+book, {password: password}, {headers: headers})
     .pipe(map(this.extractData));
   }
+
 
   getBook(){
     return this.http.get(this.uri+'/listBook', this.httpOptions)

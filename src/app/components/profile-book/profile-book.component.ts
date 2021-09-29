@@ -54,7 +54,7 @@ export class ProfileBookComponent implements OnInit {
   }
 
   deleteBook(){
-    this.restBook.deleteBook(this.user._id ,this.book._id).subscribe((res:any) => {
+    this.restBook.deleteBook(this.user._id ,this.book._id,this.possiblePass).subscribe((res:any) => {
       if(!res.bookRemoved){
         alert(res.message);
       }else{

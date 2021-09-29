@@ -12,38 +12,19 @@ import { RestUserService } from 'src/app/services/restUser/rest-user.service';
   styleUrls: ['./list-book.component.css']
 })
 export class ListBookComponent implements OnInit {
-  /*public user: User;
-  public uri: string;
-  public book: Book;
-  token: string;
-  books: [];
-  public listBooks: [];
-  searchBook;
-  data = [];
-  bookSelect: Book;*/
   books: [];
   searchBook;
   book;
   bookSelect: Book;
 
-
   constructor(private restBook: RestBookService, private restUser:RestUserService, private route: Router) { 
-    /*this.user = this.restUser.getUser();
-    this.uri = CONNECTION.URI;*/
+
   }
 
   ngOnInit(): void {
-    /*this.token = localStorage.getItem('token');
-    this.user = this.restUser.getUser();
-    this.book = new Book('','','','',[],'','',null, null,'',null);
-    this.book = new Book('','','','',[],'','',null, null,'',0);
-    this.book = new Book('','Hola','Hola','',[],'','',null, 10,'',10);
-    this.listBook();*/
-
     this.book = new Book('','','','',[],'','',null, null,'',null);
     this.book
     this.listBook();
-
   }
 
   listBook(){

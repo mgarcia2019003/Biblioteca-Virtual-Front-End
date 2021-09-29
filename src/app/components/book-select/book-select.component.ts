@@ -52,4 +52,17 @@ export class BookSelectComponent implements OnInit {
       error => alert(error.message));
     }
 
+    deleteBookLoan(){
+      this.restLoan.deleteBookLoan(this.user._id, this.book,this.loan).subscribe((res:any) => {
+        if(!res.loanDelete){
+          alert(res.message);
+        }else{
+          alert(res.message);
+          this.route.navigateByUrl('listBook');
+        }
+      },
+      (error:any) => alert(error.error.message)
+      )
+    }
+
 }

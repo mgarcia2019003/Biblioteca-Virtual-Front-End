@@ -18,19 +18,10 @@ export class ListMagazineComponent implements OnInit {
   magazineSelect: Magazine;
 
   constructor(private restMagazine: RestMagazineService, private restUser:RestUserService, private route: Router) { 
- 
+
   }
 
   ngOnInit(): void {
-    /*this.token = localStorage.getItem('token');
-    this.user = this.restUser.getUser();
-    this.magazine = new Magazine('','','','','','',null,'','',null,null,'',0);
-    if(this.token == null){
-      this.listMagazine();
-    }else{
-      this.listMagazine();
-    }   */
-
     this.magazine = new Magazine('','','','','','',null,'','',null,null,'',0);
     this.magazine
     this.listMagazine();

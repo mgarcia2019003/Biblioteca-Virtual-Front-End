@@ -24,6 +24,7 @@ export class RestLoanService {
   public token;
   public magazine;
   public book;
+  public loan;
 
   private extractData(res: Response){
     let body = res;
@@ -44,15 +45,31 @@ export class RestLoanService {
     return this.token;
   }
 
+
+  getLoan(){
+    let loan = JSON.parse(localStorage.getItem('loan'));
+    if(loan != undefined || loan != null){
+      this.loan = loan;
+    }else{
+      this.loan = null;
+    }
+    return this.loan;
+  }
+
   createBookLoan(user, book){
-    let params = JSON.stringify(book);
-    return this.http.post(this.uri+user+'/createBookLoan/'+book, params, this.httpOptions)
+    return this.http.post(this.uri+user+'/createBookLoan/'+book, this.httpOptions)
     .pipe(map(this.extractData));
   }
 
   createMagazineLoan(user, magazine){
-    let params = JSON.stringify(magazine);
-    return this.http.post(this.uri+user+'/createMagazineLoan/'+magazine, params, this.httpOptions)
+    return this.http.put(this.uri+user+'/createMagazineLoan/'+magazine, this.httpOptions)
     .pipe(map(this.extractData));
   }
+
+  deleteBookLoan(user, book,loan){
+    return this.http.post(this.uri+user+'/deleteBookLoan/'+book+loan, {} ,this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
+
+
 }
