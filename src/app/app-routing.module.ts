@@ -20,6 +20,9 @@ import { ProfileMagazineComponent } from './components/profile-magazine/profile-
 import { MagazineSelectComponent } from './components/magazine-select/magazine-select.component';
 
 import { BookReportComponent } from './components/book-report/book-report.component';
+import { MagazineReportComponent } from './components/magazine-report/magazine-report.component';
+
+import { MyLoansComponent } from './components/my-loans/my-loans.component';
 
 import { LoginGuardGuard } from './guards/login-guard.guard';
 
@@ -43,6 +46,8 @@ const routes: Routes = [
   {path: 'profileMagazine', component: ProfileMagazineComponent},
   {path: 'magazineSelect', component: MagazineSelectComponent},
   {path: 'bookReport', component: BookReportComponent},
+  {path: 'magazineReport', component: MagazineReportComponent},
+  {path: 'myLoans', component: MyLoansComponent},
   {path: '**' ,pathMatch   : 'full', component:HomeComponent}
 ];
 

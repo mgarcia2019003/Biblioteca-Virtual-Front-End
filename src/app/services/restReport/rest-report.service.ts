@@ -43,12 +43,12 @@ export class RestReportService {
   }
   
   sortMagazine(){
-    return this.http.get(this.uri+'/sortMagazine', this.httpOptions)
+    return this.http.get(this.uri+'/listMagazine', this.httpOptions)
     .pipe(map(this.extractData));
   }
 
   sortBook(){
-    return this.http.get(this.uri+'/sortBook', this.httpOptions)
+    return this.http.get(this.uri+'/listBook', this.httpOptions)
     .pipe(map(this.extractData));
   }
 

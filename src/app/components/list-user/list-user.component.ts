@@ -33,7 +33,7 @@ export class ListUserComponent implements OnInit {
         alert(res.message)
       }
     },
-    error => alert(error.error.message));
+    error => alert(error.message));
   }
 
   obtenerData(user){

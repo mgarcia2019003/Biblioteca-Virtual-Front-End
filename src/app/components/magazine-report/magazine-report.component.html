@@ -10,11 +10,8 @@
               <th>Titulo</th> 
               <th>Autor</th>      
               <th>Edición</th>
-              <th>Frecuencia</th>
-              <th>Ejemplar</th>
               <th>Tema</th>
-              <th>Disponibles</th>
-              <th>Copias</th>
+              <th>Veces rentado</th>
               <th>Opciones</th>
             </tr>
         </thead>
@@ -23,13 +20,10 @@
           <td>{{magazine.titleMagazine}}</td>
           <td>{{magazine.authorMagazine}}</td>
           <td>{{magazine.editionMagazine}}</td>
-          <td>{{magazine.frecuencyMagazine}}</td>
-          <td>{{magazine.ejemplarMagazine}}</td>
           <td>{{magazine.themesMagazine}}</td>
-          <td>{{magazine.avaliblesMagazines}}</td>
-          <td>{{magazine.copiesMagazines}}</td>
+          <td>{{magazine.loanMagazines}}</td>
             
-            <td><button id="buttonEdit" type="button" (click)="obtenerData(magazine)">Ver más...</button></td>
+            <td><button id="buttonEdit" type="button" (click)="obtenerData(book)">Ver más...</button></td>
         </tr>            
     </table>
   </div>

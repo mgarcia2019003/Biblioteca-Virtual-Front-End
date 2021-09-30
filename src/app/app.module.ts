@@ -34,8 +34,13 @@ import { MagazineSelectComponent } from './components/magazine-select/magazine-s
 import { RestLoanService } from './services/restLoan/rest-loan.service';
 import { RestReportService } from './services/restReport/rest-report.service';
 
+import { BookReportComponent } from './components/book-report/book-report.component';
+import { MagazineReportComponent } from './components/magazine-report/magazine-report.component';
+
 import { SearchBookPipe } from './pipes/searchBook/searchBook.pipe';
 import { SearchMagazinePipe } from './pipes/searchMagazine/searchMagazine.pipe';
+
+import { MyLoansComponent } from './components/my-loans/my-loans.component';
 
 
 
@@ -60,7 +65,10 @@ import { SearchMagazinePipe } from './pipes/searchMagazine/searchMagazine.pipe';
     ProfileMagazineComponent,
     MagazineSelectComponent,
     SearchBookPipe,
-    SearchMagazinePipe
+    SearchMagazinePipe,
+    BookReportComponent,
+    MagazineReportComponent,
+    MyLoansComponent
   ],
   imports: [
     BrowserModule,

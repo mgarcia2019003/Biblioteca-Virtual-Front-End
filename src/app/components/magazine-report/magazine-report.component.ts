@@ -7,11 +7,11 @@ import { User } from 'src/app/models/user';
 import { RestUserService } from 'src/app/services/restUser/rest-user.service';
 
 @Component({
-  selector: 'app-list-magazine',
-  templateUrl: './list-magazine.component.html',
-  styleUrls: ['./list-magazine.component.css']
+  selector: 'app-magazine-report',
+  templateUrl: './magazine-report.component.html',
+  styleUrls: ['./magazine-report.component.css']
 })
-export class ListMagazineComponent implements OnInit {
+export class MagazineReportComponent implements OnInit {
   magazines: [];
   searchMagazine;
   magazine;

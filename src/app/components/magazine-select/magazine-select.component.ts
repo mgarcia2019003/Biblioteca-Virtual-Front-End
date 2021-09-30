@@ -39,7 +39,7 @@ export class MagazineSelectComponent implements OnInit {
       }
 
       createMagazineLoan(){
-        this.restLoan.createMagazineLoan(this.user._id, this.magazine).subscribe((res:any) => {
+        this.restLoan.createMagazineLoan(this.user._id, this.magazine._id).subscribe((res:any) => {
           if(res.loanSaved){
             alert(res.message);
             this.today = new Date().toISOString().slice(0,10);

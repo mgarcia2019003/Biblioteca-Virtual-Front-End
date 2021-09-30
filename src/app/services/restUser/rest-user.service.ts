@@ -74,7 +74,7 @@ export class RestUserService {
 
   saveUser(user){
     let params = JSON.stringify(user);
-    return this.http.post(this.uri+'signUp', params, this.httpOptions)
+    return this.http.post(this.uri+'/signUp', params, this.httpOptions)
     .pipe(map(this.extractData));
   }
 

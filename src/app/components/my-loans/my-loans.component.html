@@ -1,0 +1,21 @@
+<h1>TUS PRESTAMOS</h1>
+<div style="overflow-x:auto; margin-bottom: 2em;">
+    <br>
+    <table>
+        <thead>            
+            <tr>
+              <th>No.</th>
+              <th>Libro</th> 
+              <th>Revista</th>   
+              <th>Opciones</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let loan of loan let i = index">
+          <td>{{i+1}}</td>
+          <td>{{loan.bookLoan}}</td>
+          <td>{{loan.magazineLoan}}</td>
+            
+            <td><button id="buttonEdit" type="button" (click)="obtenerData(loan)">Devolver</button></td>
+        </tr>            
+    </table>
+  </div>

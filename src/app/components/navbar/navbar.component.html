@@ -15,6 +15,7 @@
       <a routerLink="/listMagazine" id=otro>
         Ver Revistas
       </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,13 +40,16 @@
             {{user.username}}
           </a>
           <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown" aria-haspopup="true" aria-expanded="false">
-            <li><a class="dropdown-item" routerLink="/profile">Perfil</a></li>
+            <li><a class="dropdown-item" routerLink="/profile">Ver perfil</a></li>
+            <li><a class="dropdown-item" *ngIf="user.rol == 'user'" routerLink="/myLoans">Ver prestamos</a></li>
             <li><a class="dropdown-item" *ngIf="user.rol == 'admin'" routerLink="/createBook">Crear libros</a></li>
             <li><a class="dropdown-item" *ngIf="user.rol == 'admin'" routerLink="/createMagazine">Crear revistas</a></li>
             <li><a class="dropdown-item" *ngIf="user.rol == 'admin'" routerLink="/createUser">Crear usuario</a></li>
             <li><a class="dropdown-item" *ngIf="user.rol == 'admin'" routerLink="/listUsers">Listar usuarios</a></li>
+            <li><a class="dropdown-item" *ngIf="user.rol == 'admin'" routerLink="/bookReport">Reporte de libros</a></li>
+            <li><a class="dropdown-item" *ngIf="user.rol == 'admin'" routerLink="/magazineReport">Reporte de revistas</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" (click)="logOut()">LogOut</a></li>
+            <li><a class="dropdown-item" (click)="logOut()">Cerrar sesión</a></li>
           </ul>
         </li>
       </ul>

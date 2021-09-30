@@ -25,6 +25,7 @@ export class RestLoanService {
   public magazine;
   public book;
   public loan;
+  public loanSelect;
 
   private extractData(res: Response){
     let body = res;
@@ -62,7 +63,7 @@ export class RestLoanService {
   }
 
   createMagazineLoan(user, magazine){
-    return this.http.put(this.uri+user+'/createMagazineLoan/'+magazine, this.httpOptions)
+    return this.http.post(this.uri+user+'/createMagazineLoan/'+magazine, this.httpOptions)
     .pipe(map(this.extractData));
   }
 
@@ -70,6 +71,22 @@ export class RestLoanService {
     return this.http.post(this.uri+user+'/deleteBookLoan/'+book+loan, {} ,this.httpOptionAuth)
     .pipe(map(this.extractData));
   }
+
+  getMyLoan(user){
+    return this.http.get(this.uri+user+'/listMyLoans', this.httpOptionAuth)
+    .pipe(map(this.extractData));
+  }
+
+  getLoanSelect(){
+    let loanSelect = JSON.parse(localStorage.getItem('loanSelect'));
+    if(loanSelect != undefined || loanSelect != null){
+      this.loanSelect = loanSelect;
+    }else{
+      this.loanSelect = null;
+    }
+    return this.loanSelect;
+  }
+
 
 
 }
